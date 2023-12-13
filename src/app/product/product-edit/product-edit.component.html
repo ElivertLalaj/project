@@ -1,0 +1,42 @@
+<div class="container ">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="productName">productName</label>
+            <input type="text" id="productName" name="productName" class="form-control" placeholder="Enter your productName" [(ngModel)]="productName">
+        </div>
+        <div class="col-md-6">
+            <label for="productCode">productCode</label>
+            <input type="text" id="productCode" name="productCode" class="form-control" placeholder="Enter productCode" [(ngModel)]="productCode">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="price">price</label>
+            <input type="text" id="price" name="price" class="form-control" placeholder="Enter your price" [(ngModel)]="price">
+        </div>
+        <div class="col-md-6">
+            <label for="description">description</label>
+            <input type="text" id="description" name="description" class="form-control" placeholder="Enter description" [(ngModel)]="description">
+        </div>
+    </div>
+    
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <label for="releaseDate">releaseDate</label>
+            <input type="text" id="releaseDate" name="releaseDate" class="form-control" placeholder="Enter releaseDate" [(ngModel)]="releaseDate">
+        </div>
+        <div class="col-md-6">
+            <label for="starRating">starRating</label>
+            <input type="text" id="starRating" name="starRating" class="form-control" placeholder="Enter starRating" [(ngModel)]="starRating">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="imageUrl">imageUrl</label>
+                <input type="text" id="imageUrl" name="imageUrl" class="form-control" placeholder="Enter your imageUrl" [(ngModel)]="imageUrl">
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-primary" (click)="onClickFinish()">save</button>
+            </div>
+        </div>
+    </div>
+</div>

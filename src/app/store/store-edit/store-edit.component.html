@@ -1,0 +1,25 @@
+<div class="container ">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" [(ngModel)]="name">
+        </div>
+        <div class="col-md-6">
+            <label for="lng">Longitude</label>
+            <input type="text" id="lng" name="lng" class="form-control" placeholder="Enter longitude" [(ngModel)]="lng">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <label for="lat">Latitude</label>
+            <input type="text" id="lat" name="lat" class="form-control" placeholder="Enter latitude" [(ngModel)]="lat">
+        </div>
+        <div class="col-md-6">
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description" class="form-control" placeholder="Enter description" [(ngModel)]="description">
+        </div>
+        <div>
+        <button class="btn btn-primary" (click)="onClickFinish()">save</button>
+        </div>
+    </div>
+</div>

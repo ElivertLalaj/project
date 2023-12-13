@@ -1,0 +1,68 @@
+
+
+<div *ngIf="showSidebar ; else noSidebar">
+
+
+  <header class="card costumeCard">
+    <div>
+      <div class="d-flex  justidy-content-center">
+      
+        <div class="dropdown">
+          <button  class="card costumeCard" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100px; margin-top:10px;">
+            Wed Color
+          </button>
+          <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton1" style="width: 0px;">
+          <button class="lightButton" (click)="changeTheme('light')">Light theme</button>
+          <button class="darkButton" (click)="changeTheme('dark')">Dark theme</button>
+          <button class="orangeButton" (click)="changeTheme('orange')">Orange theme</button>
+        </div>
+      </div>
+        
+    
+    
+        <a href="home">Home</a>
+        <a href="store">Store</a>
+        <a href="products">Product</a>
+        <a href="car">Cars</a>
+        <a href="trip">Trip</a>
+        <a href="invoice">Invoice</a>
+
+        <button class="button" (click)="Logout()">Log out</button>
+      </div>
+    </div>
+
+  </header>
+
+
+
+  <nav class="card costumeCard">
+    <a href="home">Home</a>
+    <a href="store">Store</a>
+    <a href="products">Product</a>
+    <a href="car">Cars</a>
+    <a href="trip">Trip</a>
+    <a href="invoice">Invoice</a>
+  
+  </nav>
+
+
+
+ <div class="router">
+
+    <router-outlet></router-outlet>
+   
+  </div>
+
+
+
+
+</div>
+
+<ng-template #noSidebar>
+  
+  <router-outlet></router-outlet>
+  
+</ng-template>
+
+
+

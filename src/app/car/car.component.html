@@ -1,0 +1,28 @@
+<table class="table table-bordered table-dark">
+    <thead>
+      <tr>
+        <th >name</th>
+        <th >fuel</th>
+        <th>door</th>
+        <th>size</th>
+        <th>transmission</th>
+        <th>options 
+          <button class="button" id="edit" (click)="addCar()">+</button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of car">
+        <td>{{item.name}}</td>
+        <td>{{item.fuel}}</td>
+        <td>{{item.door}}</td>
+        <td>{{item.size}}</td>
+        <td>{{item.transmission}}</td>
+        <td style="width: 150px;">
+          <button class="button" id="delete" (click)="editClicked(item.id)">edit</button>
+
+            <button class="button" id="delete" (click)="deleteClicked(item.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,25 @@
+table {
+    margin-top: 20px;
+    margin-left: 155px;
+    width: 85%;
+}
+
+button{
+    margin-left: 20px;
+    background-color: #212529;
+    color: grey;
+    border: 0.5px solid black;
+    padding: 5px;
+    text-align: center;
+
+}
+
+#edit:hover {
+    background-color: green;
+    color: white;
+}
+
+#delete:hover {
+    background-color: red;
+    color: white;
+}

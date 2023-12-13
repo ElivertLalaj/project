@@ -1,0 +1,89 @@
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+header {
+  background-color: #5e5a87;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+nav {
+  height: 100%;
+  width: 150px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #5e5a87;
+  padding-top: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #5e5a87;
+}
+
+.content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+  /* margin-top: 10px; */
+}
+
+header {
+
+    margin-left: 155px;
+    top: 0;
+    left: 0;
+    background-color: #5e5a87;
+    text-align: center;
+}
+
+.button{
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #5e5a87;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+    margin-left: 50%;
+}
+
+.button:hover {
+    background-color: red;
+    border-color: red;
+}
+
+
+.default-theme {
+    background-color: lightblue;
+    color: black;
+  }
+  
+  .alternate-theme {
+    background-color: darkslategray;
+    color: white;
+  }

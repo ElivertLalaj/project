@@ -1,0 +1,35 @@
+.darkButton {
+    margin-left: 25px;
+    border-radius: 10px;
+    background-color: black;
+    border: 0px;
+    // margin-top: 5px;
+    color: white;
+
+}
+.lightButton {
+    margin-left: 25px;
+    margin-top: 5px;
+    border-radius: 10px;
+    background-color: white;
+    border: 0px;
+    // box-shadow: 5px 5px 5px 5px #eee;
+    margin-bottom: 10px;
+
+}
+.orangeButton {
+    margin-top: 10px;
+    margin-left: 25px;
+    border-radius: 10px;
+    background-color: rgb(255, 128, 0);
+    border: 0px;
+    // box-shadow: 0px 5px 0px 5px #eee;
+
+}
+
+.card.costumeCard {
+background-color: $cardbackground-primary;
+color: $card-primary-text;
+
+}
+

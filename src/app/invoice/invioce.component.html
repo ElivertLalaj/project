@@ -1,0 +1,27 @@
+<table class="table table-bordered">
+    <thead >
+      <tr>
+        <th>created_at</th>
+        <th>created_by</th>
+        <th>total</th>
+
+        <th>Options 
+          <button class="button" id="edit" (click)="addInvoice()">+</button>
+
+        </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of invoice">
+        <td>{{item.created_at}}</td>
+        <td >{{item.created_by}}</td>
+        <td>{{item.total}}</td>
+        <td>
+            <button class="button" id="edit" (click)="editClicked(item.id)">Edit</button>
+            <button class="button" id="delete" (click)="deleteClicked(item.id)">Delete</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>

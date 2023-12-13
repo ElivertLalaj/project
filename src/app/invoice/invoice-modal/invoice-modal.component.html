@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="modalRef.close()"
+  ></button>
+</div>
+<div class="modal-body">
+<form></form>
+  <select  class="form-select" aria-label="Default select example" style="background-color: black;
+  color:white" [(ngModel)]="productSelectedId">
+   <option selected value="0">Open this select menu</option>
+  
+   <option *ngFor="let item of productList" [value]="item.id">{{ item.productName }}</option>
+  
+   <!-- <option *ngFor="let item of productList" [value]="item.id">{{ item.name }}</option> -->
+
+ </select>
+ 
+</div>
+<div class="col">
+  
+  <input type="number" class="form-control" aria-label="Default select example" id="sasia" placeholder="sasia" [(ngModel)]="sasia" style="background-color: black;
+  color:white">
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+    Close
+  </button>
+  <button (click)="saveButtonClick()" type="button" class="btn btn-primary">Save changes</button>
+</div>
