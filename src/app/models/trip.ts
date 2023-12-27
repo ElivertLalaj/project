@@ -6,3 +6,5 @@ export interface Trip {
     car_id: number
     name: string
   }
+  
+  

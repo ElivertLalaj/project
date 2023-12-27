@@ -1,5 +1,4 @@
 <div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
   <button
     type="button"
     class="btn-close"
@@ -9,11 +8,10 @@
 </div>
 <div class="modal-body">
 <form></form>
-  <select  class="form-select" aria-label="Default select example" style="background-color: black;
-  color:white" [(ngModel)]="productSelectedId">
-   <option selected value="0">Open this select menu</option>
+  <select  class="form-select" aria-label="Default select example" placeholder="add product" [(ngModel)]="productSelectedId">
+   
   
-   <option *ngFor="let item of productList" [value]="item.id">{{ item.productName }}</option>
+   <option  *ngFor="let item of productList" [value]="item.id">{{ item.productName }}</option>
   
    <!-- <option *ngFor="let item of productList" [value]="item.id">{{ item.name }}</option> -->
 
@@ -22,8 +20,7 @@
 </div>
 <div class="col">
   
-  <input type="number" class="form-control" aria-label="Default select example" id="sasia" placeholder="sasia" [(ngModel)]="sasia" style="background-color: black;
-  color:white">
+  <input type="number" class="form-control" aria-label="Default select example" id="sasia" placeholder="sasia" [(ngModel)]="sasia">
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-secondary" (click)="modalRef.close()">

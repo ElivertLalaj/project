@@ -4,6 +4,7 @@ import { StoreService } from '../store.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Store } from 'src/app/models/store';
 import { ResponseModel } from 'src/app/models/ResponseModel';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-store-edit',
@@ -11,26 +12,37 @@ import { ResponseModel } from 'src/app/models/ResponseModel';
   styleUrls: ['./store-edit.component.css'],
 })
 export class StoreEditComponent {
-  private url = 'http://127.0.0.1:8000/api/store/';
+
+  storeForm: FormGroup
 
   constructor(
     private router: Router,
     private storeService: StoreService,
     private route: ActivatedRoute,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
 
-  name: string = '';
-  lng: number = 0;
-  lat: number = 0;
-  description: String = '';
+  ) {
+
+    this.storeForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      lng: [0,[ Validators.required, Validators.pattern("^[0-9]*$")]],
+      lat: [0,[ Validators.required, Validators.pattern("^[0-9]*$")]],
+      description: ['', Validators.required],
+     
+
+
+    });
+  }
+
+ 
   store?: Store;
   StoreId = 0;
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.StoreId = params['id'];
-      if(this.StoreId != null){
+      if (this.StoreId != null) {
         this.getData(params['id']);
       }
 
@@ -51,40 +63,49 @@ export class StoreEditComponent {
 
   setData() {
     console.log('setData called');
-    this.name = this.store?.name ?? '';
-    this.lat = this.store?.lat ?? 0;
-    this.lng = this.store?.lng ?? 0;
-    this.description = this.store?.description ?? '';
+    this.storeForm.controls['name'].setValue(this.store?.name || '');
+    this.storeForm.controls['lat'].setValue(this.store?.lat || 0);
+    this.storeForm.controls['lng'].setValue(this.store?.lng || 0);
+    this.storeForm.controls['description'].setValue(this.store?.description || '');
+  
   }
 
   onClickFinish() {
-    var addStore = {
-      name: this.name,
-      description: this.description,
-      lng: this.lng,
-      lat: this.lat,
-    };
+    console.log(this.storeForm.valid) 
 
-    if(this.store?.id == null){
-      this.storeService.addSendData(addStore).subscribe((response) => {
-        console.log("Response from backend: " , response )
-        this.router.navigate(["/store"])
-      },
-      (error) => {
-        console.error("error" ,error)
-      },
-      ) 
-    }else {
+    if (this.storeForm.valid) {
 
-    this.storeService.editSendData(addStore).subscribe(
-      (response) => {
-        console.log('Response from bacend:', response);
-        this.router.navigate(['./store']);
-      },
-      (error) => {
-        console.error('error: ', error);
+      
+      var addStore = {
+        name: this.storeForm.value.name,
+        description: this.storeForm.value.description,
+        lng: this.storeForm.value.lng,
+        lat: this.storeForm.value.lat,
+      };
+
+      if (this.store?.id == null) {
+        this.storeService.addSendData(addStore).subscribe((response) => {
+          console.log("Response from backend: ", response)
+          this.router.navigate(["/store"])
+        },
+          (error) => {
+            console.error("error", error)
+          },
+        );
+      } else {
+
+        this.storeService.editSendData(addStore , this.StoreId).subscribe(
+          (response) => {
+            console.log('Response from bacend:', response);
+            this.router.navigate(['./store']);
+          },
+          (error) => {
+            console.error('error: ', error);
+          }
+        );
       }
-    );
+    } else {
+      alert('Please fill in all inputs.');
+    }
   }
-}
 }

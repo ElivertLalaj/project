@@ -1,4 +1,6 @@
-<table class="table">
+<div class="bgimg">
+
+<table class="table table-bordered">
     <thead class="thead-dark">
       <tr>
         <th scope="col">name</th>
@@ -7,9 +9,8 @@
         <th scope="col">description</th>
         <th scope="col">car_id</th>
         <th>Options 
-            <button class="button" id="edit" (click)="addStore()">+</button>
-  
-          </th>
+            <button class="button" id="add" (click)="addStore()">+</button>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -17,7 +18,7 @@
         <th scope="row">{{item.name}}</th>
         <td>{{item.start}}</td>
         <td>{{item.end}}</td>
-        <td>@{{item.description}}</td>
+        <td>{{item.description}}</td>
         <td>{{item.car_id}}</td>
         <td>
             <button class="button" id="edit" (click)="editClicked(item.id)">Edit</button>
@@ -28,4 +29,4 @@
     
     </tbody>
   </table>
- 
+</div>

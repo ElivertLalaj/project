@@ -1,35 +1,37 @@
-<div class="container ">
+<div class="container" >
+    <form [formGroup]="carForm" (ngSubmit)="onClickSave()">
     <div class="row">
         <div class="col-md-6">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" [(ngModel)]="name">
+            <input type="text" id="name" name="name" class="form-control" formControlName="name" placeholder="Enter your name">
         </div>
         <div class="col-md-6">
             <label for="fuel">fuel</label>
-            <input type="text" id="fuel" name="fuel" class="form-control" placeholder="Enter fuel" [(ngModel)]="fuel">
+            <input type="text" id="fuel" name="fuel" class="form-control" formControlName="fuel" placeholder="Enter fuel" >
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
             <label for="door">door</label>
-            <input type="text" id="door" name="door" class="form-control" placeholder="Enter your door" [(ngModel)]="door">
+            <input type="number" id="door" name="door" class="form-control" formControlName="door" door="Enter your door" >
         </div>
         <div class="col-md-6">
             <label for="size">size</label>
-            <input type="text" id="size" name="size" class="form-control" placeholder="Enter size" [(ngModel)]="size">
+            <input type="text" id="size" name="size" class="form-control" formControlName="size" placeholder="Enter size" >
         </div>
     </div>
     
     <div class="row mt-3">
         <div class="col-md-6">
             <label for="transmission">transmission</label>
-            <input type="text" id="transmission" name="transmission" class="form-control" placeholder="Enter transmission" [(ngModel)]="transmission">
+            <input type="text" id="transmission" name="transmission" class="form-control" formControlName="transmission" placeholder="Enter transmission">
         </div>
       
 
             <div class="col-md-6">
-                <button class="btn btn-primary" (click)="onClickSave()">save</button>
+                <button class="btn btn-primary" type="submit" [disabled]="carForm.pristine || carForm.invalid">save</button>
             </div>
 
     </div>
+</form>
 </div>

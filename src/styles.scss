@@ -1,6 +1,6 @@
 
 @use '@angular/material' as mat;
-// @import '~bootstrap/dist/css/bootstrap.min.css';
+
 @include mat.core();
 
 .lightTheme {
@@ -41,29 +41,29 @@ $card-primary-text:mat.get-color-from-palette($dark-primary, 100);
 
 }
 
-.orangeTheme {
-    $orange-primary:mat.define-palette(mat.$blue-grey-palette);
-    $orange-accent:mat.define-palette(mat.$red-palette);
-    $orange-warn:mat.define-palette(mat.$teal-palette);
+// .orangeTheme {
+//     $orange-primary:mat.define-palette(mat.$blue-grey-palette);
+//     $orange-accent:mat.define-palette(mat.$red-palette);
+//     $orange-warn:mat.define-palette(mat.$teal-palette);
 
-    $orange-theme:mat.define-light-theme((
-        color:(primary:$orange-primary,
-        accent:$orange-accent,
-        warn:$orange-warn
-        )));
-
-
-
-@include mat.all-component-themes($orange-theme);
+//     $orange-theme:mat.define-light-theme((
+//         color:(primary:$orange-primary,
+//         accent:$orange-accent,
+//         warn:$orange-warn
+//         )));
 
 
-$cardbackground-primary:mat.get-color-from-palette($orange-primary, 800);
-$card-primary-text:mat.get-color-from-palette($orange-primary, 100);
 
-@import "costumthemes";
+// @include mat.all-component-themes($orange-theme);
 
 
-}
+// $cardbackground-primary:mat.get-color-from-palette($orange-primary, 800);
+// $card-primary-text:mat.get-color-from-palette($orange-primary, 100);
+
+// @import "costumthemes";
+
+
+// }
 
 
 html, body { height: 100%; }

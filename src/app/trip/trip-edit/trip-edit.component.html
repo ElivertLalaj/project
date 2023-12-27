@@ -1,32 +1,38 @@
-<div class="container ">
+<div class="container " >
+    <form [formGroup]="tripForm" (ngSubmit)="onClickSave()">
     <div class="row">
         <div class="col-md-6">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" [(ngModel)]="name">
+            <input type="text" id="name" name="name" formControlName="name" class="form-control" placeholder="Enter your name" >
         </div>
         <div class="col-md-6">
             <label for="start">start</label>
-            <input type="text" id="start" name="start" class="form-control" placeholder="Enter longitude" [(ngModel)]="start">
+            <input type="text" id="start" name="start" formControlName="start" class="form-control" placeholder="Enter start">
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-6">
         <div class="col-md-6">
             <label for="end">end</label>
-            <input type="text" id="end" name="end" class="form-control" placeholder="Enter latitude" [(ngModel)]="end">
+            <input type="text" id="end" name="end" formControlName="end" class="form-control" placeholder="Enter end" >
         </div>
         <div class="col-md-6">
             <label for="description">Description</label>
-            <input type="text" id="description" name="description" class="form-control" placeholder="Enter description" [(ngModel)]="description">
+            <input type="text" id="description" name="description" formControlName="description" class="form-control" placeholder="Enter description">
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-6">
         <div class="col-md-6">
-            <label for="car_id">car_id</label>
-            <input type="text" id="car_id" name="car_id" class="form-control" placeholder="Enter latitude" [(ngModel)]="car_id">
+             <select  formControlName="car_id"  class="form-select" aria-label="Default select example" >
+                
+               
+                <option *ngFor="let item of car" [value]="item.id">{{ item.name }}</option>
+
+              </select>
         </div>
-        <div>
-            <button class="btn btn-primary" (click)="onClickSave()">save</button>
+        <div class="col-md-6">
+            <button class="btn btn-primary" type="submit" [disabled]="tripForm.pristine || tripForm.invalid">save</button>
         </div>
     </div>
+</form>
  </div>
 

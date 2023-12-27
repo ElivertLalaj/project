@@ -1,4 +1,4 @@
-<table class="table table-bordered table-dark">
+<table class="table table-bordered ">
   <thead>
     <tr>
       <th>name</th>
@@ -7,8 +7,8 @@
       <th>total</th>
       <th>
         options
-        <button type="button" class="btn btn-primary" (click)="openModal()">
-            Open Modal
+        <button type="button" id="add" class="btn btn-primary" (click)="openModal()">
+            +
           </button>
       </th>
     </tr>
@@ -33,7 +33,7 @@
       <td></td>
       <td>{{total}}</td>
       <td>
-        <button (click)="saveButtonClicked(invoiceId)" type="button" class="btn btn-dark">
+        <button (click)="saveButtonClicked(invoiceId)" type="button" class="btn">
           save Invoice
         </button>
       </td>

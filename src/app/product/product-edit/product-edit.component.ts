@@ -4,7 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from 'src/app/models/product';
 import { ResponseModel } from 'src/app/models/ResponseModel';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-product-edit',
   templateUrl: './product-edit.component.html',
@@ -12,22 +13,32 @@ import { ResponseModel } from 'src/app/models/ResponseModel';
 })
 export class ProductEditComponent {
 
+  productForm: FormGroup;
+
+
 
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
+  ) {
 
-  description: string = '';
-  productCode: string = '';
-  releaseDate: string = '';
-  imageUrl: string = '';
-  price: number = 0;
-  productName: string = '';
-  starRating: number = 0;
-  id: number = 0;
+    this.productForm = this.formBuilder.group({
+      productName: ['', Validators.required],
+      productCode: [0,[ Validators.required, Validators.pattern("^[0-9]*$")]],
+      price: [0,[ Validators.required, Validators.pattern("^[0-9]*$")]],
+      description: ['', Validators.required],
+      releaseDate: ['', Validators.required],
+      starRating: [0.0,[ Validators.required, Validators.pattern("^[0-9]*$")]],
+      imageUrl: ['', Validators.required],
+
+
+    });
+  }
+
+  
   productId = 0;
   product?: Product;
 
@@ -56,42 +67,47 @@ export class ProductEditComponent {
   }
 
   setData() {
-    console.log('setData called');
-    this.productName = this.product?.productName ?? '';
-    this.productCode = this.product?.productCode ?? '';
-    this.price = this.product?.price ?? 0;
-    this.description = this.product?.description ?? '';
-    this.releaseDate = this.product?.releaseDate ?? '';
-    this.starRating = this.product?.starRating ?? 0;
-    this.imageUrl = this.product?.imageUrl ?? '';
+    this.productForm.controls['productName'].setValue(this.product?.productName || '');
+    this.productForm.controls['productCode'].setValue(this.product?.productCode || 0);
+    this.productForm.controls['price'].setValue(this.product?.price || 0);
+    this.productForm.controls['description'].setValue(this.product?.description || '');
+    this.productForm.controls['releaseDate'].setValue(this.product?.releaseDate || '');
+    this.productForm.controls['starRating'].setValue(this.product?.starRating || 0);
+    this.productForm.controls['imageUrl'].setValue(this.product?.imageUrl || '');
   }
 
   onClickFinish() {
+
+    console.log(this.productForm.value);
+
+
     var addStore = {
-      productName: this.productName,
-      productCode: this.productCode,
-      price: this.price,
-      description: this.description,
-      releaseDate: this.releaseDate,
-      starRating: this.starRating,
-      imageUrl: this.imageUrl,
+      productName: this.productForm.value.productName,
+      productCode: this.productForm.value.productCode,
+      price: this.productForm.value.price,
+      description: this.productForm.value.description,
+      releaseDate: this.productForm.value.releaseDate,
+      starRating: this.productForm.value.starRating,
+      imageUrl: this.productForm.value.imageUrl,
     };
+
+    console.log(addStore);
 
     if (this.product?.id == null) {
       this.productService.addSendData(addStore).subscribe(
         (response) => {
           console.log('Response from bacend:', response);
-          this.router.navigate(['./products']);
+          this.router.navigate(['/products']);
         },
         (error) => {
           console.error('error: ', error);
         }
       );
     } else {
-      this.productService.editSendData(addStore).subscribe(
+      this.productService.editSendData(addStore , this.productId).subscribe(
         (response) => {
           console.log('Response from bacend:', response);
-          this.router.navigate(['./products']);
+          this.router.navigate(['/products']);
         },
         (error) => {
           console.error('error: ', error);
@@ -99,4 +115,6 @@ export class ProductEditComponent {
       );
     }
   }
+
+ 
 }

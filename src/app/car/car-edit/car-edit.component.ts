@@ -4,6 +4,7 @@ import { CarService } from '../car.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Car } from 'src/app/models/car';
 import { ResponseModel } from 'src/app/models/ResponseModel';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-car-edit',
@@ -13,26 +14,36 @@ import { ResponseModel } from 'src/app/models/ResponseModel';
 export class CarEditComponent {
   url = 'http://127.0.0.1:8000/api/cars';
 
+  carForm: FormGroup;
+  carId = 0;
+  car?: Car;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private carService: CarService,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private formBuilder: FormBuilder,
 
-  fuel: string = '';
-  door: number = 0;
-  name: string = '';
-  transmission: string = '';
-  size: string = '';
-  id: number = 0;
-  carId = 0;
-  car?: Car;
+  ) {
+
+    
+    this.carForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      fuel: ['', Validators.required],
+      door: [0, Validators.required ],
+      size: ['', Validators.required],
+      transmission: ['', Validators.required],
+
+    });
+  }
+
+ 
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.carId = params['id'];
-    if (this.car?.id != null) {
+    if (this.carId != null) {
       this.getData(params['id']);
     }
     });
@@ -42,6 +53,7 @@ export class CarEditComponent {
     this.carService.getCarsById<ResponseModel<Car>>(carId).subscribe({
       next: (data: ResponseModel<Car>) => {
         this.car = data.data;
+        console.log("this.car" ,this.car)
         this.setData();
       },
       error(error: any) {
@@ -50,23 +62,32 @@ export class CarEditComponent {
     });
   }
 
+  
   setData() {
-    this.name = this.car?.name ?? '';
-    this.fuel = this.car?.fuel ?? '';
-    this.door = this.car?.door ?? 0;
-    this.size = this.car?.size ?? '';
-    this.transmission = this.car?.transmission ?? '';
+    console.log("setData called")
+    this.carForm.controls['name'].setValue(this.car?.name ?? '');
+    this.carForm.controls['fuel'].setValue(this.car?.fuel ?? '');
+    this.carForm.controls['door'].setValue(this.car?.door ?? 0);
+    this.carForm.controls['size'].setValue(this.car?.size ?? '');
+    this.carForm.controls['transmission'].setValue(this.car?.transmission ?? '');
   }
 
   onClickSave() {
+    console.log('Form Valid:', this.carForm.valid);
+    
+  
+
     var addCar = {
-      name: this.name,
-      fuel: this.fuel,
-      door: this.door,
-      size: this.size,
-      transmission: this.transmission,
+      name: this.carForm.value.name,
+      fuel: this.carForm.value.fuel,
+      door: this.carForm.value.door,
+      size: this.carForm.value.size,
+      transmission: this.carForm.value.transmission,
     };
-    if (this.car?.id == null) {
+
+    console.log(addCar);
+    
+     if (this.car?.id == null) {
       this.carService.addSendData(addCar).subscribe(
         (response) => {
           console.log('response from backend', response);
@@ -77,15 +98,17 @@ export class CarEditComponent {
         }
       );
     } else {
-      this.carService.editSendData(addCar).subscribe(
+      this.carService.editSendData(addCar , this.carId).subscribe(
         (response) => {
           console.log('response from backend', response);
           this.router.navigate(['/car']);
         },
         (error) => {
-          console.error('error : ', error);
+          console.error('error in edit : ', error);
         }
       );
     }
-  }
+  
+}
+
 }

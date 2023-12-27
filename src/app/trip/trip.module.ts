@@ -5,6 +5,7 @@ import { TripComponent } from './trip.component';
 import { AuthGuard } from '../login/AuthGuard';
 import { TripEditComponent } from './trip-edit/trip-edit.component';
 import { SharedModule } from '../shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +26,9 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     CommonModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
+
   ]
 })
 export class TripModule { }

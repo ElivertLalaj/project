@@ -50,14 +50,14 @@ export class StoreService {
     return this.http.get<T>(this.url + `/` + StoreId ,{headers : headers});
   }
   
-  editSendData(data: any){
-    const url = this.url + this.StoreId
+  editSendData(data: any , StoreId : number){
+    const url = this.url + '/' + StoreId
     const headers = new HttpHeaders ({
       'Authorization': "Bearer " + localStorage.getItem('token'),
 
     })
 
-    return this.http.put(url, data ,{headers : headers});
+    return this.http.put(url , data ,{headers : headers});
   }
   
   addSendData(data: any){

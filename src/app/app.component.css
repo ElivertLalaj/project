@@ -13,9 +13,9 @@ body {
   
   nav {
     height: 100%;
+    margin-top: 5px;
     width: 150px;
     position: fixed;
-    top: 0;
     left: 0;
     background-color: #5e5a87;
     padding-top: 20px;
@@ -48,8 +48,7 @@ body {
   }
   
   header {
-  
-      margin-left: 155px;
+      width: 100%;
       top: 0;
       left: 0;
       background-color: #5e5a87;
@@ -58,25 +57,18 @@ body {
   
   .button{
       display: inline-block;
-      padding: 15px 30px;
-      font-size: 16px;
-      font-weight: bold;
+      font-size: 12px;
+      /* font-weight: bold; */
       text-align: center;
       text-decoration: none;
       cursor: pointer;
       color: #fff;
-      background-color: #5e5a87;
       border: none;
       border-radius: 5px;
       transition: background-color 0.3s, border-color 0.3s;
-      margin-left: 30%;
+      margin-left: 40%;
   }
-  
-  .button:hover {
-      background-color: red;
-      border-color: red;
-  }
-  
+
   
   .default-theme {
       background-color: lightblue;
@@ -92,4 +84,178 @@ body {
       background-color: black;
     border-radius: 90px;
 
+    }
+
+    .dropbtn {
+      color: white;
+      font-size: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 100px;
+    }
+    
+  
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 10px;
+
+    }
+    
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      border-radius: 10px;
+    }
+    
+    .dropdown-content a:hover {background-color: #f1f1f1}
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .cf:before,
+    .cf:after {
+      content: " ";
+      display: table;
+    }
+    
+    .cf:after {
+      clear: both;
+    }
+    
+    /* .cf {
+      *zoom: 1;
+    }
+     */
+   
+    .menu,
+    .submenu {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  
+    .menu {     
+      margin-left: 200px;
+      width: 800px;
+     
+      width: -moz-fit-content;
+      width: -webkit-fit-content;
+      width: fit-content; 
+    }
+    
+    .menu > li {
+      background: #34495e;
+      float: left;
+      position: relative;
+      transform: skewX(25deg);
+    }
+    
+    .menu a {
+      display: block;
+      color: #fff;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: Arial, Helvetica;
+      font-size: 14px;
+    }   
+    
+    .menu li:hover {
+      background: #e74c3c;
+    }   
+    
+    .menu > li > a {
+      transform: skewX(-25deg);
+      padding: 1em 2em;
+    }
+    
+    /* Dropdown */
+    .submenu {
+      position: absolute;
+      width: 200px;
+      left: 50%; margin-left: -100px;
+      transform: skewX(-25deg);
+      transform-origin: left top;
+    }
+    
+    .submenu li {
+      background-color: #34495e;
+      position: relative;
+      overflow: hidden;   
+    }           
+    
+    .submenu > li > a {
+      padding: 1em 2em;     
+    }
+    
+    .submenu > li::after {
+      content: '';
+      position: absolute;
+      top: -125%;
+      height: 100%;
+      width: 100%;      
+      box-shadow: 0 0 50px rgba(0, 0, 0, .9);     
+    }   
+    
+    /* Odd stuff */
+    .submenu > li:nth-child(odd){
+      transform: skewX(-25deg) translateX(0);
+    }
+    
+    .submenu > li:nth-child(odd) > a {
+      transform: skewX(25deg);
+    }
+    
+    .submenu > li:nth-child(odd)::after {
+      right: -50%;
+      transform: skewX(-25deg) rotate(3deg);
+    }       
+    
+    /* Even stuff */
+    .submenu > li:nth-child(even){
+      transform: skewX(25deg) translateX(0);
+    }
+    
+    .submenu > li:nth-child(even) > a {
+      transform: skewX(-25deg);
+    }
+    
+    .submenu > li:nth-child(even)::after {
+      left: -50%;
+      transform: skewX(25deg) rotate(3deg);
+    }
+    
+    /* Show dropdown */
+    .submenu,
+    .submenu li {
+      opacity: 0;
+      visibility: hidden;     
+    }
+    
+    .submenu li {
+      transition: .2s ease transform;
+    }
+    
+    .menu > li:hover .submenu,
+    .menu > li:hover .submenu li {
+      opacity: 1;
+      visibility: visible;
+    }   
+    
+    .menu > li:hover .submenu li:nth-child(even){
+      transform: skewX(25deg) translateX(15px);     
+    }
+    
+    .menu > li:hover .submenu li:nth-child(odd){
+      transform: skewX(-25deg) translateX(-15px);     
     }

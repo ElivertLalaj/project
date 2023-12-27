@@ -21,6 +21,7 @@ import { InvoiceModule } from './invoice/invoice.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { InvoiceModalComponent } from './invoice/invoice-modal/invoice-modal.component';
+import { RequiredModule } from './required/required.module';
 
 
 
@@ -51,6 +52,7 @@ import { InvoiceModalComponent } from './invoice/invoice-modal/invoice-modal.com
     TripModule,
     InvoiceModule,
     MdbModalModule,
+    RequiredModule,
     ModalModule.forRoot(),
     
   ],

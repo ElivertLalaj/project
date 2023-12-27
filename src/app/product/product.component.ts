@@ -23,7 +23,7 @@ export class ProductComponent {
 
 
   editClicked(productId: any) {
-    this.router.navigate(["./products/" + productId])
+    this.router.navigate(["/products/" + productId])
   }
   deleteClicked(productId: any) {
     this.productService.deleteProduct<ResponseModel<Product>>(productId).subscribe({

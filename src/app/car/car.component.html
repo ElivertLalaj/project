@@ -1,4 +1,6 @@
-<table class="table table-bordered table-dark">
+<div class="bgimg">
+
+<table class="table table-bordered">
     <thead>
       <tr>
         <th >name</th>
@@ -7,7 +9,7 @@
         <th>size</th>
         <th>transmission</th>
         <th>options 
-          <button class="button" id="edit" (click)="addCar()">+</button>
+          <button class="button" id="add" (click)="addCar()">+</button>
         </th>
       </tr>
     </thead>
@@ -19,10 +21,11 @@
         <td>{{item.size}}</td>
         <td>{{item.transmission}}</td>
         <td style="width: 150px;">
-          <button class="button" id="delete" (click)="editClicked(item.id)">edit</button>
+          <button class="button" id="edit" (click)="editClicked(item.id)">edit</button>
 
             <button class="button" id="delete" (click)="deleteClicked(item.id)">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
+</div>

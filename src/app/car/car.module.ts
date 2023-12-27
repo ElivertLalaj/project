@@ -5,6 +5,7 @@ import { CarComponent } from './car.component';
 import { AuthGuard } from '../login/AuthGuard';
 import { CarEditComponent } from './car-edit/car-edit.component';
 import { SharedModule } from '../shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     CommonModule,
     SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class CarModule { }

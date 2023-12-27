@@ -1,25 +1,29 @@
-<div class="container ">
+<div class="container" >
+    <form [formGroup]="storeForm" (ngSubmit)="onClickFinish()">
     <div class="row">
         <div class="col-md-6">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" [(ngModel)]="name">
+            <label for="name" >Name</label>
+  <input
+  type="text"  minlength="4" id="name"  name="name" class="form-control" formControlName="name" placeholder="Enter your name" >
         </div>
+
         <div class="col-md-6">
-            <label for="lng">Longitude</label>
-            <input type="text" id="lng" name="lng" class="form-control" placeholder="Enter longitude" [(ngModel)]="lng">
+            <label for="lng">lng</label>
+            <input type="number" id="lng" name="lng" class="form-control" formControlName="lng" placeholder="Enter longitude" >
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-md-6">
-            <label for="lat">Latitude</label>
-            <input type="text" id="lat" name="lat" class="form-control" placeholder="Enter latitude" [(ngModel)]="lat">
+            <label for="lat">lat</label>
+            <input type="number" id="lat" name="lat" class="form-control" formControlName="lat" placeholder="Enter latitude">
         </div>
         <div class="col-md-6">
             <label for="description">Description</label>
-            <input type="text" id="description" name="description" class="form-control" placeholder="Enter description" [(ngModel)]="description">
+            <input type="text" id="description" name="description" class="form-control" formControlName="description" placeholder="Enter description">
         </div>
         <div>
-        <button class="btn btn-primary" (click)="onClickFinish()">save</button>
+        <button class="btn btn-primary"  type="submit"   [disabled]="storeForm.pristine || storeForm.invalid">save</button>
         </div>
     </div>
+</form>
 </div>

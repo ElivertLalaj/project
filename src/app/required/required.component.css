@@ -1,0 +1,91 @@
+.square {
+    margin-left: 20px;
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+  }
+
+ p{
+    margin-left: 20px  ;
+ }
+
+ /* HTML: <div class="loader"></div> */
+.loader {
+    width: 20px;
+    margin-top: 40px;
+    aspect-ratio: 1;
+    margin-left: 40%;
+    animation: l13-0 2s linear infinite;
+  }
+  .loader::before,
+  .loader::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(at 30% 30%,#0000,#000a) red;
+    animation: l13-1 0.5s cubic-bezier(.5,-500,.5,500) infinite;
+  }
+  .loader::after {
+    animation-delay: -0.15s;
+  }
+  @keyframes l13-0 { 
+    100% { transform:rotate(360deg)} 
+  }
+  @keyframes l13-1 { 
+    100% { transform:translate(0.5px)} 
+  }
+  /* HTML: <div class="loader"></div> */
+.load {
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-left: 40%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    transform-origin: 50% 116.5%;
+    animation: l17 2s infinite linear; 
+  }
+  .load:before {
+    content:"";
+    min-width: 233%;
+    height: 233%;
+    background: 
+      radial-gradient(farthest-side,#00DA3C 90%,#0000) top,
+      radial-gradient(farthest-side,#00CBE7 90%,#0000) left,
+      radial-gradient(farthest-side,#FD8603 90%,#0000) bottom,
+      radial-gradient(farthest-side,#F4F328 90%,#0000) right;
+    background-size: 43% 43%;
+    background-repeat: no-repeat;
+    animation: inherit;
+    animation-direction: reverse;
+  }
+  @keyframes l17 {
+    100% {transform: rotate(360deg)}
+  }
+
+  /* HTML:  */
+.eye {
+    display: inline-flex;
+    gap: 10px;
+  }
+  .eye:before,
+  .eye:after {
+    content: "";
+    height: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+      linear-gradient(#222 0 0) top/100% 40% no-repeat,
+      radial-gradient(farthest-side,#000 95%,#0000) 50%/8px 8px no-repeat
+      #fff;
+    animation: l7 1.5s infinite alternate ease-in;
+  }
+  @keyframes l7 {
+    0%,
+    70% {background-size:100% 40%,8px 8px}
+    85% {background-size:100% 120%,8px 8px}
+    100% {background-size:100% 40%,8px 8px}
+  }

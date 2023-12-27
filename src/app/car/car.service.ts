@@ -8,13 +8,13 @@ import { Observable } from 'rxjs';
 export class CarService {
   url = 'http://127.0.0.1:8000/api/cars';
 
-  carId = 0;
+  
 
   constructor(private http: HttpClient) {}
 
   getCars<T>(): Observable<T> {
     const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      "Authorization": 'Bearer ' + localStorage.getItem('token'),
     });
 
     return this.http.get<T>(this.url + '/getAllCars', { headers: headers });
@@ -22,7 +22,7 @@ export class CarService {
 
   deleteCar<T>(carId: number): Observable<T> {
     const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      "Authorization": 'Bearer ' + localStorage.getItem('token'),
     });
 
     return this.http.delete<T>(this.url + `/${carId}`, { headers: headers });
@@ -30,24 +30,25 @@ export class CarService {
 
   getCarsById<T>(carId: String): Observable<T> {
     const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      "Authorization": 'Bearer ' + localStorage.getItem('token'),
     });
 
     return this.http.get<T>(this.url + '/' + carId, { headers: headers });
   }
 
-  editSendData(data: any) {
-    const url = this.url + this.carId;
+  editSendData(data: any, carId: number) {
+    const url = this.url + '/' + carId
     const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + localStorage.getItem('token'),
-    });
+      'Authorization': "Bearer " + localStorage.getItem('token'),
+
+    })
 
     return this.http.put(url, data, { headers: headers });
   }
   addSendData(data: any) {
     const url = this.url;
     const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      "Authorization": 'Bearer ' + localStorage.getItem('token'),
     });
 
     return this.http.post(url, data, { headers: headers });

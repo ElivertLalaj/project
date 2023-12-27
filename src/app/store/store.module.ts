@@ -5,6 +5,7 @@ import { StoreComponent } from './store.component';
 import { AuthGuard } from '../login/AuthGuard';
 import { StoreEditComponent } from './store-edit/store-edit.component';
 import { SharedModule } from '../shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -28,7 +29,9 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     CommonModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
+
   ]
 })
 export class StoreModule { }

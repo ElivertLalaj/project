@@ -3,16 +3,17 @@ table {
     width: 85%;
     margin-left: 155px;
     border-collapse: collapse;
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
 
   button{
     margin-left: 20px;
     background-color: white;
     color: grey;
-    border: 0.5px solid black;
+    border: none;
     padding: 5px;
     text-align: center;
+    border-radius: 10px ;
 
 }
 
@@ -25,3 +26,32 @@ table {
     background-color: red;
     color: white;
 }
+
+th, td {
+    text-align: center;
+    width: 12%;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    #add{
+        background-color:  #f2f2f2;
+      }
+
+
+      .bgimg {
+        background-image: url('/assets/trips.jpg'); /* Replace with your image path or URL */
+        min-height: 89.4vh;
+        background-position: center;
+        background-size: cover;
+        /* display: flex; */
+        /* justify-content: center; */
+        align-items: center;
+        color: #fff; /* Text color on top of the image */
+        text-align: center;
+      }

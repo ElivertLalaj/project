@@ -5,6 +5,7 @@ import { ProductComponent } from './product.component';
 import { AuthGuard } from '../login/AuthGuard';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { SharedModule } from '../shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -30,7 +31,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     CommonModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class ProductModule { }

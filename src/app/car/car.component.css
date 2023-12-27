@@ -1,17 +1,29 @@
 table {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-left: 155px;
     width: 85%;
 }
+th, td {
+    text-align: center;
+    width: 12%;
+    /* padding: 10px; */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    }
 
+
+th {
+    background-color: #f2f2f2;
+  }
 button{
     margin-left: 20px;
-    background-color: #212529;
+    /* background-color: #212529; */
+    background-color: white;
     color: grey;
-    border: 0.5px solid black;
+    border: none;
     padding: 5px;
     text-align: center;
-
+    border-radius: 10px;
 }
 
 #edit:hover {
@@ -23,3 +35,18 @@ button{
     background-color: red;
     color: white;
 }
+
+#add {
+    background-color: #f2f2f2;
+}
+.bgimg {
+    background-image: url('/assets/cars.jpg'); /* Replace with your image path or URL */
+    min-height: 89.4vh;
+    background-position: center;
+    background-size: cover;
+    /* display: flex; */
+    /* justify-content: center; */
+    align-items: center;
+    color: #fff; /* Text color on top of the image */
+    text-align: center;
+  }
