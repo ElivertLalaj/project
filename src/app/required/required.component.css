@@ -9,83 +9,97 @@
     margin-left: 20px  ;
  }
 
- /* HTML: <div class="loader"></div> */
-.loader {
-    width: 20px;
-    margin-top: 40px;
-    aspect-ratio: 1;
-    margin-left: 40%;
-    animation: l13-0 2s linear infinite;
-  }
-  .loader::before,
-  .loader::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: radial-gradient(at 30% 30%,#0000,#000a) red;
-    animation: l13-1 0.5s cubic-bezier(.5,-500,.5,500) infinite;
-  }
-  .loader::after {
-    animation-delay: -0.15s;
-  }
-  @keyframes l13-0 { 
-    100% { transform:rotate(360deg)} 
-  }
-  @keyframes l13-1 { 
-    100% { transform:translate(0.5px)} 
-  }
-  /* HTML: <div class="loader"></div> */
-.load {
-    width: 40px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    margin-top: 30px;
-    margin-left: 40%;
-    display: flex;
-    justify-content: center;
+  body {
+    margin: 0;
     overflow: hidden;
-    transform-origin: 50% 116.5%;
-    animation: l17 2s infinite linear; 
-  }
-  .load:before {
-    content:"";
-    min-width: 233%;
-    height: 233%;
-    background: 
-      radial-gradient(farthest-side,#00DA3C 90%,#0000) top,
-      radial-gradient(farthest-side,#00CBE7 90%,#0000) left,
-      radial-gradient(farthest-side,#FD8603 90%,#0000) bottom,
-      radial-gradient(farthest-side,#F4F328 90%,#0000) right;
-    background-size: 43% 43%;
-    background-repeat: no-repeat;
-    animation: inherit;
-    animation-direction: reverse;
-  }
-  @keyframes l17 {
-    100% {transform: rotate(360deg)}
+    background-color: #f200f332;
   }
 
-  /* HTML:  */
-.eye {
-    display: inline-flex;
-    gap: 10px;
-  }
-  .eye:before,
-  .eye:after {
-    content: "";
-    height: 20px;
-    aspect-ratio: 1;
+  .petal {
+    width: 400px;
+    height: 350px;
+    background-color: #ff00f133;
     border-radius: 50%;
-    background:
-      linear-gradient(#222 0 0) top/100% 40% no-repeat,
-      radial-gradient(farthest-side,#000 95%,#0000) 50%/8px 8px no-repeat
-      #fff;
-    animation: l7 1.5s infinite alternate ease-in;
+    position: absolute;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 100%;
   }
-  @keyframes l7 {
-    0%,
-    70% {background-size:100% 40%,8px 8px}
-    85% {background-size:100% 120%,8px 8px}
-    100% {background-size:100% 40%,8px 8px}
+
+  .petal1 { animation-name: movePetal1; }
+  .petal2 { animation-name: movePetal2; }
+  .petal3 { animation-name: movePetal3; }
+
+  @keyframes movePetal1 {
+    0%, 100% {
+      transform: rotate(0deg);
+      /* top: 200px; */
+      /* left: 200px; */
+      right: 10px;
+      bottom: 100px;
+    }
+    50% {
+      transform: rotate(360deg);
+      /* top: -200px; */
+      /* right: 200px; */
+    }
+  }
+
+  @keyframes movePetal2 {
+    0%, 100% {
+      transform: rotate(0deg);
+      top: 50px;
+        right: -50px;
+    }
+    50% {
+      transform: rotate(90deg);
+      top: 50px;
+      /* left: 0; */
+      right: -50px;
+    }
+  }
+
+  @keyframes movePetal3 {
+    0%, 100% {
+      transform: rotate(0deg);
+      top: -300px;
+      /* left: 500px; */
+      /* right: 1000px; */
+    }
+    50% {
+      transform: rotate(180deg);
+      top: 100;
+      /* left: 100px;
+      right: 50px; */
+    }
+  }
+
+  .circle{
+    width: 350px;
+    height: 350px;
+    background-color: #ff00f133;
+    border-radius: 50%;
+    position: absolute;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 100%;
+  }
+
+  .circle { animation-name: circle; }
+  
+
+  @keyframes circle {
+    0%, 100% {
+      transform: rotate(0deg);
+      top: -200px;
+      /* left: 200px; */
+      /* right: 0px; */
+      bottom: 10px;
+    }
+    50% {
+      transform: rotate(360deg);
+      left: -10px;
+    }
   }

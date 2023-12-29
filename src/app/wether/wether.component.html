@@ -1,0 +1,22 @@
+<div class="weather">
+    <form [formGroup]="weatherForm" (ngSubmit)="getWeather()">
+    <label for="city">Enter City:</label>
+    <input formControlName="city" name="city" id="city" />
+    <button type="submit" [disabled]="weatherForm.pristine || weatherForm.invalid">Get Weather</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</form>
+  </div>
+  
+  <!-- <div *ngIf="weatherShow" style="margin-left: 200px;">
+    <h2>{{ weather.city }} Weather</h2>
+    <p>Temperature: {{ weather.temp }}°C</p>
+    <p>Humidity: {{ weather.main.humidity }}%</p>
+    
+ </div> -->

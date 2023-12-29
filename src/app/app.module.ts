@@ -22,6 +22,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { InvoiceModalComponent } from './invoice/invoice-modal/invoice-modal.component';
 import { RequiredModule } from './required/required.module';
+import { WetherModule } from './wether/wether.module';
 
 
 
@@ -53,6 +54,7 @@ import { RequiredModule } from './required/required.module';
     InvoiceModule,
     MdbModalModule,
     RequiredModule,
+    WetherModule,
     ModalModule.forRoot(),
     
   ],
