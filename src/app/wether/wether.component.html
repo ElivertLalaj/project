@@ -1,22 +1,37 @@
+<!-- wether.component.html -->
+
 <div class="weather">
     <form [formGroup]="weatherForm" (ngSubmit)="getWeather()">
-    <label for="city">Enter City:</label>
-    <input formControlName="city" name="city" id="city" />
-    <button type="submit" [disabled]="weatherForm.pristine || weatherForm.invalid">Get Weather</button>
-
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-            </tr>
-        </thead>
+      <!-- <label for="city">Enter City:</label> -->
+      <input formControlName="city" name="city" id="city" placeholder="Enter City" />
+      <button type="submit"  [disabled]="weatherForm.pristine || weatherForm.invalid">Get Weather</button>
+    </form>
+  
+    <table *ngIf="weatherData.length > 0" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>region</th>
+          <th>country</th>
+          <th>localtime_epoch</th>
+          <th>localtime</th>
+          <th>Temperature (°C)</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of weatherData">
+          <td>{{ item.location.name }}</td>
+          <td>{{ item.location.region }}</td>
+          <td>{{ item.location.country }}</td>
+          <td>{{ item.location.localtime_epoch }}</td>
+          <td>{{ item.location.localtime }}</td>
+          <td>{{ item.current.temp_c }}</td>
+          <td>{{ item.location.lat }}</td>
+          <td>{{ item.location.lon }}</td>
+        </tr>
+      </tbody>
     </table>
-</form>
   </div>
   
-  <!-- <div *ngIf="weatherShow" style="margin-left: 200px;">
-    <h2>{{ weather.city }} Weather</h2>
-    <p>Temperature: {{ weather.temp }}°C</p>
-    <p>Humidity: {{ weather.main.humidity }}%</p>
-    
- </div> -->

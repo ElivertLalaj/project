@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class WetherService {
 
-  // private apiKey = '889811a32571498fa86135123232612';
+  private apiKey = '889811a32571498fa86135123232612';
   private apiUrl = 'http://api.weatherapi.com/v1/forecast.json?key=889811a32571498fa86135123232612';
 
 
@@ -21,7 +21,7 @@ export class WetherService {
       })
     const params = {
       q: city,
-      // appid: this.apiKey,
+      appid: this.apiKey,
     }
 
     return this.http.get(this.apiUrl, {headers, params})
